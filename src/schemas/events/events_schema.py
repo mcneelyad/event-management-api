@@ -1,15 +1,16 @@
 from datetime import datetime
-import uuid
+from typing import Optional
+from pydantic import Field
 
 from src.schemas.base_schema import BaseSchema
 
 class EventSchema(BaseSchema):
-    id: uuid.UUID
+    id: int
     name: str
     description: str
     start_date: datetime
     end_date: datetime
-    location: str
+    location: Optional[str] = Field(None)
     price: float
     capacity: int
     is_active: bool
